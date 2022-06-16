@@ -1,0 +1,34 @@
+{
+  "name": "task-queue-js",
+  "version": "1.0.0",
+  "description": "simple task queue for handling asynchronous operations",
+  "main": "index.js",
+  "scripts": {
+    "format": "standard --fix",
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
+    "unit": "NODE_ENV=test mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigan-abd/task-queue-js.git"
+  },
+  "keywords": [
+    "task queue",
+    "async queue"
+  ],
+  "author": "vigan.abd",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vigan-abd/task-queue-js/issues"
+  },
+  "homepage": "https://github.com/vigan-abd/task-queue-js#readme",
+  "dependencies": {
+    "async": "^3.2.4",
+    "flat-promise": "^1.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "standard": "^17.0.0"
+  }
+}

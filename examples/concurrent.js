@@ -1,24 +1,15 @@
-# task-queue-js
+'use strict'
 
-NodeJS task queue work running asynchronous functions
-
-## Installing
-```console
-npm install --save-prod task-queue-js
-```
-
-## Testing
-```
-npm test
-```
-
-## Usage
-```javascript
-const { TaskQueue } = require('task-queue-js')
+const { TaskQueue } = require('../index')
 
 const main = async () => {
   const tq = new TaskQueue()
-  tq.initQueue('foo')
+  tq.initQueue('foo', 3)
+
+  const taskRes = await tq.pushTask('foo', async () => {
+    return 0.1 + 0.2
+  })
+  console.log('single task result', taskRes)
 
   const calcs = []
   const someTask = async (ms, i) => {
@@ -38,9 +29,3 @@ const main = async () => {
 }
 
 main().catch(console.error)
-```
-
-More examples can be found under examples directory!
-
-## Authors
-- vigan.abd
