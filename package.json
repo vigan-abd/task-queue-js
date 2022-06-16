@@ -1,5 +1,5 @@
 {
-  "name": "task-queue-js",
+  "name": "@vigan-abd/task-queue-js",
   "version": "1.0.0",
   "description": "simple task queue for handling asynchronous operations",
   "main": "index.js",
