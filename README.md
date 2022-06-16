@@ -4,7 +4,7 @@ NodeJS task queue work running asynchronous functions
 
 ## Installing
 ```console
-npm install --save-prod task-queue-js
+npm install --save-prod @vigan-abd/task-queue-js
 ```
 
 ## Testing
@@ -14,7 +14,7 @@ npm test
 
 ## Usage
 ```javascript
-const { TaskQueue } = require('task-queue-js')
+const { TaskQueue } = require('@vigan-abd/task-queue-js')
 
 const main = async () => {
   const tq = new TaskQueue()
