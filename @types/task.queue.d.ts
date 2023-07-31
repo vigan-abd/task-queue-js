@@ -1,5 +1,3 @@
-'use strict'
-
 import { QueueObject } from 'async'
 
 export class TaskQueue {
@@ -7,7 +5,7 @@ export class TaskQueue {
 
   public hasQueue(key: string): boolean
 
-  public initQueue(key: string, concurrency: number = 1): boolean
+  public initQueue(key: string, concurrency?: number): boolean
 
   public getQueue(key: string): QueueObject<any> | undefined
 

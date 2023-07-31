@@ -3,7 +3,7 @@
 /* eslint-env mocha */
 
 const assert = require('assert')
-const TaskQueue = require('../src/task.queue')
+const { TaskQueue } = require('../')
 const { sleep } = require('./helper')
 
 describe('TaskQueue tests', () => {

@@ -44,6 +44,10 @@ class TaskQueue {
     return this.queues.get(key)
   }
 
+  /**
+   * @param {string} key - queue key
+   * @param {() => Promise<any>} task
+   */
   pushTask (key, task) {
     const queue = this.queues.get(key)
     if (!queue) return Promise.reject(new Error('ERR_TASK_QUEUE_NOT_FOUND'))
