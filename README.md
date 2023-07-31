@@ -14,7 +14,7 @@ npm test
 
 ## Usage
 ```javascript
-const { TaskQueue } = require('@vigan-abd/task-queue-js')
+const { TaskQueue, TaskPriorityQueue } = require('@vigan-abd/task-queue-js')
 
 const main = async () => {
   const tq = new TaskQueue()
@@ -35,6 +35,18 @@ const main = async () => {
 
   const batchRes = await Promise.all(promises)
   console.log('batch results', batchRes, calcs)
+
+  const pq = new TaskPriorityQueue()
+  pq.initQueue('bar')
+
+  const prioriyPromises = []
+  prioriyPromises.push(pq.pushTask('bar', () => someTask(3000, 1), 2)) // number of priority 2
+  prioriyPromises.push(pq.pushTask('bar', () => someTask(4000, 2), 1)) // number of priority 1 - higher priority
+  prioriyPromises.push(pq.pushTask('bar', () => someTask(2000, 3), 5)) // number of priority 5 - low priority
+  prioriyPromises.push(pq.pushTask('bar', () => someTask(1000, 4), 1))
+
+  const priorityBatchRes = await Promise.all(promises)
+  console.log('priority batch results', priorityBatchRes, calcs.slice(4))
 }
 
 main().catch(console.error)
