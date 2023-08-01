@@ -1,7 +1,7 @@
 'use strict'
 
 const async = require('async')
-const flatPromise = require('flat-promise')
+const { promiseFlat } = require('./utils')
 
 class TaskQueue {
   constructor () {
@@ -52,7 +52,7 @@ class TaskQueue {
     const queue = this.queues.get(key)
     if (!queue) return Promise.reject(new Error('ERR_TASK_QUEUE_NOT_FOUND'))
 
-    const { promise, reject, resolve } = flatPromise()
+    const { promise, resolve, reject } = promiseFlat()
     const job = { task, resolve, reject }
     queue.push(job)
 
